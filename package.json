@@ -1,0 +1,20 @@
+{
+  "name": "bug",
+  "version": "1.0.0",
+  "description": "A new Flutter project.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "flutter:pug:get": "flutter pub get",
+    "build:web": "npm run flutter:pug:get & flutter build web --release --no-sound-null-safety --dart-define=FLUTTER_WEB_CANVASKIT_URL=https://npm.elemecdn.com/canvaskit-wasm@0.24.0/bin/ ",
+    "build:image": "docker build -t afs .",
+    "docker:run": "docker run -p 80:80 -it afs",
+    "run": "npm run build:web && npm run build:image && npm run docker:run"
+  },
+  "author": "",
+  "license": "ISC"
+}
